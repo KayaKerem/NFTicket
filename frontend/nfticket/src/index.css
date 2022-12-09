@@ -10,6 +10,16 @@
   html,
   body,
   #root {
-    @apply h-full 
+    @apply h-full bg-[#F8F8F8]
+  }
+}
+
+@layer components {
+  .sidebar-li-link {
+    @apply flex items-center space-x-4
+  }
+
+  .sidebar-li-link span {
+    @apply text-2xl
   }
 }
