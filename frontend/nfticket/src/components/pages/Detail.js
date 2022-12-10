@@ -1,4 +1,4 @@
-import PriceSvg from "../../assets/svg/price.svg";
+import PriceImg from "../../assets/png/price.png";
 
 export const Detail = (props) => {
   const { ticket } = props;
@@ -16,15 +16,21 @@ export const Detail = (props) => {
             <h1 className="text-md sm:text-[24px] font-bold text-[#27262E]">
               {ticket.name}
             </h1>
-            <h2 className="text-md sm:text-[24px] font-semiboldbold text-[#27262E]">
-              Description
-            </h2>
             <h3 className="text-sm sm:text-[16px] font-semibold text-[#27262E]">
               {ticket.description}
             </h3>
           </div>
-          <div className="border-2 rounded-xl bg-white min-w-[320px] p-8 flex items-center flex-col">
-            <img alt="" src={PriceSvg}></img>
+          <div className="border-2 rounded-xl bg-white min-w-[320px] p-8 flex items-center flex-col gap-12">
+            <div className="flex align-items">
+              <span>
+                <img alt="" src={PriceImg} className="pr-4" />
+              </span>
+              <span className="text-xl">{ticket.price}</span>
+              <span className="text-xl">$</span>
+            </div>
+            <button className="w-full bg-[#FF66C4] rounded-xl h-8 text-white hover:">
+              Buy
+            </button>
           </div>
         </div>
       </div>

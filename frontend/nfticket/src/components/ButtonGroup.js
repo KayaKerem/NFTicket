@@ -35,13 +35,6 @@ export const ButtonGroup = (props) => {
         >
           <span>Theatre</span>
         </button>
-        <button
-          id="metaverse"
-          onClick={HandleClick}
-          className="text-primary-gray text-sm font-medium rounded-full px-3 py-1.5"
-        >
-          <span>Metaverse</span>
-        </button>
       </div>
     </div>
   );
