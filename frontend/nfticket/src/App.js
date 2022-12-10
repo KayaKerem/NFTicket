@@ -8,9 +8,11 @@ import { Launchpad } from "./components/pages/Launchpad";
 import { Profile } from "./components/pages/Profile";
 import { SideBar } from "./components/SideBar";
 import { Detail } from "./components/pages/Detail";
+import { useSelector } from "react-redux";
 
 function App() {
   const [account, setAccount] = useState("");
+  const launch = useSelector((state) => state.launch.launch);
 
   let loc = useLocation();
 
@@ -41,59 +43,74 @@ function App() {
     price: 100,
   };
 
-  const ticke1 = {
+  const ticket1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
     id: 2,
-    price: 100,
+    price: 200,
   };
-  const ticke2 = {
+  const ticket2 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
     id: 3,
-    price: 100,
+    price: 150,
   };
 
-  const mintingLaunchpadVip = {
-    nftler: [ticke1, ticke2, ticket],
-    name: "Mor ve Ötesi",
-    description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
-    date: "27 : 12 : 2022",
-    tur: "concert",
-    type: "vip",
-  };
-
-  const mintingLaunchpadNormal = {
-    nftler: [ticke1, ticke2, ticket],
-    name: "Mor ve Ötesi",
-    description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
-    date: "27 : 12 : 2022",
-    tur: "concert",
-    type: "normal",
-  };
-
-  const mintingLaunchpadVip1 = {
-    nftler: [ticke1, ticke2, ticket],
-    name: "Fenerbahçe-Galatasaray ",
-    description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
-    date: "06 : 01 : 2023",
-    tur: "sport",
-    type: "vip",
-  };
-
-  const mintingLaunchpadNormal1 = {
-    nftler: [ticke1, ticke2, ticket],
-    name: "Fenerbahçe-Galatasaray ",
-    description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
-    date: "06 : 01 : 2023",
-    tur: "sport",
-    type: "normal",
-  };
-
-  const mintingLaunchpadVip2 = {
-    nftler: [ticke1, ticke2, ticket],
+  const thatreLan1C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
     name: "3 Maymun",
     description: "Haluk Bilginer'in Zorlu PSM'de muhteşem performansı",
-    date: "13 : 01 : 2023",
+    date: "02 : 10 : 2023",
     tur: "theatre",
+    type: "Vip",
+  };
+
+  const thatreLan2C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
+    name: "Kral Arthur",
+    description: "1745 yıllarına geri dönüş",
+    date: "02 : 10 : 2023",
+    tur: "theatre",
+    type: "Normal",
+  };
+
+  const sportLan1C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
+    name: "Fenerbahçe-Galatasaray ",
+    description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
+    date: "02 : 10 : 2023",
+    tur: "sport",
+    type: "Vip",
+  };
+
+  const sportLan2C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
+    name: "Konyaspor-Başakşehir ",
+    description: "Cumartesi akşamı futbol şöleni",
+    date: "02 : 10 : 2023",
+    tur: "sport",
+    type: "Normal",
+  };
+
+  const sportLan3C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
+    name: "Beşiktaş-Trabzonspor ",
+    description: "Şampiyonluk yarışı",
+    date: "02 : 10 : 2023",
+    tur: "sport",
+    type: "Normal",
+  };
+
+  const concert1C = {
+    nfts: [ticket, ticket1, ticket2],
+    img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
+    name: "Mor ve Ötesi",
+    description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
+    date: "02 : 10 : 2023",
+    tur: "concert",
     type: "vip",
   };
 
@@ -101,7 +118,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
     name: "3 Maymun",
     description: "Haluk Bilginer'in Zorlu PSM'de muhteşem performansı",
-    date: "13 : 01 : 2023",
+    date: "02 : 10 : 2023",
     tur: "theatre",
     type: "Vip",
   };
@@ -110,7 +127,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
     name: "Kral Arthur",
     description: "1745 yıllarına geri dönüş",
-    date: "03 : 03 : 2023",
+    date: "02 : 10 : 2023",
     tur: "theatre",
     type: "Normal",
   };
@@ -119,7 +136,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
     name: "Fenerbahçe-Galatasaray ",
     description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
-    date: "06 : 01 : 2023",
+    date: "02 : 10 : 2023",
     tur: "sport",
     type: "Vip",
   };
@@ -128,7 +145,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
     name: "Konyaspor-Başakşehir ",
     description: "Cumartesi akşamı futbol şöleni",
-    date: "07 : 01 : 2023",
+    date: "02 : 10 : 2023",
     tur: "sport",
     type: "Normal",
   };
@@ -137,7 +154,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
     name: "Beşiktaş-Trabzonspor ",
     description: "Şampiyonluk yarışı",
-    date: "07 : 01 : 2023",
+    date: "02 : 10 : 2023",
     tur: "sport",
     type: "Normal",
   };
@@ -146,7 +163,7 @@ function App() {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
     name: "Mor ve Ötesi",
     description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
-    date: "27 : 12 : 2022",
+    date: "02 : 10 : 2023",
     tur: "concert",
     type: "vip",
   };
@@ -160,7 +177,7 @@ function App() {
     thatreLan2,
   ];
 
-  const tickets = Array(20).fill(ticket);
+  const tickets = Array(20).fill(1);
 
   return (
     <>
@@ -168,14 +185,17 @@ function App() {
       <main className="lg:pl-[calc(292px+32px)] lg:pr-[32px] px-5 pt-5 lg:pt-8 w-full pb-10">
         {loc === "detail" ? (
           <Routes>
-            <Route path="detail" element={<Detail ticket={ticket} />}></Route>
+            <Route path="detail" element={<Detail ticket={launch} />}></Route>
           </Routes>
         ) : (
           <>
             <Header account={account} connect={connect} />
             <Routes>
               <Route path="/" element={<Home tickets={tickets} />}></Route>
-              <Route path="collection" element={<Collection />}></Route>
+              <Route
+                path="collection"
+                element={<Collection collections={collections} />}
+              ></Route>
               <Route
                 path="launchpad"
                 element={<Launchpad launchPads={launchpads} />}

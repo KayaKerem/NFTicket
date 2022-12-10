@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  launch: false,
+  la: null,
 };
 
 export const launch = createSlice({

@@ -6,7 +6,7 @@ export const Detail = (props) => {
     <div className="mt-10">
       <div className="mt-7">
         <div className="flex items-center justify-between mb-7 flex-wrap">
-          <h2 className="section-title m-2">Ticket Details</h2>
+          <h2 className="section-title m-2">Event Details</h2>
         </div>
         <div className="flex items-center justify-center flex-col">
           <img alt="" src={ticket.img}></img>
@@ -20,16 +20,17 @@ export const Detail = (props) => {
               {ticket.description}
             </h3>
           </div>
-          <div className="border-2 rounded-xl bg-white min-w-[320px] p-8 flex items-center flex-col gap-12">
-            <div className="flex align-items">
+          <div className="flex items-center flex-col gap-4">
+            {/* <div className="flex align-items">
               <span>
                 <img alt="" src={PriceImg} className="pr-4" />
               </span>
               <span className="text-xl">{ticket.price}</span>
               <span className="text-xl">$</span>
-            </div>
-            <button className="w-full bg-[#FF66C4] rounded-xl h-8 text-white hover:">
-              Buy
+            </div> */}
+            <button className="special">
+              <span className="">Mint</span>
+              <div className="liquid"></div>
             </button>
           </div>
         </div>
