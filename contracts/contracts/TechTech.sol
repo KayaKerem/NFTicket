@@ -11,6 +11,8 @@ contract TechTech is ERC721, ERC721URIStorage, Ownable {
 
     uint256 public MINT_PRICE = 0.05 ether;
     uint256 public MAX_SUPPLY = 1000;
+    address public ownerOfCollection = 0xD5900cE1bA1839023E3Fd101E7F3c92E43916764;
+    // uint256 public MINT_PROFIT = 5;
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
@@ -35,7 +37,7 @@ contract TechTech is ERC721, ERC721URIStorage, Ownable {
     
     function withdraw() public onlyOwner{
         require(address(this).balance > 0,"Balance is zero");
-        payable(owner()).transfer(address(this).balance);
+        payable(ownerOfCollection).transfer(address(this).balance);
     }
 
     // The following functions are overrides required by Solidity.
