@@ -10,11 +10,14 @@ import { SideBar } from "./components/SideBar";
 import { Detail } from "./components/pages/Detail";
 import { useSelector } from "react-redux";
 import { Nfts } from "./components/pages/Nfts";
+import { NftDetail } from "./components/pages/NftDetail";
 
 function App() {
   const [account, setAccount] = useState("");
   const [isConnected, setIsConnected] = useState(false);
   const launch = useSelector((state) => state.launch.launch);
+  const collection = useSelector((state) => state.collection.collection);
+  const nft = useSelector((state) => state.nft.nft);
 
   let loc = useLocation();
 
@@ -37,24 +40,26 @@ function App() {
         console.log(err);
       });
     const signer = provider.getSigner();
-    signer.getAddress().then((account) => console.log(account));
   }
 
   const ticket = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162203933388800/ticket-1.png?width=1440&height=466",
     id: 1,
     price: 100,
+    chainNum: 32,
   };
 
   const ticket1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
     id: 2,
-    price: 200,
+    price: 150,
+    chainNum: 17,
   };
   const ticket2 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
     id: 3,
-    price: 150,
+    price: 200,
+    chainNum: 28,
   };
 
   const thatreLan1C = {
@@ -201,16 +206,25 @@ function App() {
     <>
       <SideBar account={account} connect={connect} />
       <main className="lg:pl-[calc(292px+32px)] lg:pr-[32px] px-5 pt-5 lg:pt-8 w-full pb-10">
-        {loc === "detail" || loc === "nfts" ? (
+        {loc === "detail" || loc === "nfts" || loc === "nftDetail" ? (
           <Routes>
             <Route path="detail" element={<Detail ticket={launch} />}></Route>
-            <Route path="nfts" element={<Nfts />}></Route>
+            <Route path="nfts" element={<Nfts ticket={collection} />}></Route>
+            <Route
+              path="nftDetail"
+              element={<NftDetail nft={nft} collection={collection} />}
+            ></Route>
           </Routes>
         ) : (
           <>
             <Header account={account} connect={connect} />
             <Routes>
-              <Route path="/" element={<Home tickets={tickets} />}></Route>
+              <Route
+                path="/"
+                element={
+                  <Home launchs={launchpads} collections={collections} />
+                }
+              ></Route>
               <Route
                 path="collection"
                 element={

@@ -4,9 +4,17 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Ticket } from "../Ticket";
 import OwlCarousel from "react-owl-carousel";
+import { NftDetail } from "./NftDetail";
+import { NftBox } from "./NftBox";
 
 export const Home = (props) => {
-  const { tickets } = props;
+  const { launchs, collections } = props;
+
+  let nfts = [];
+
+  collections.forEach((element) => {
+    nfts = nfts.concat(element.nfts);
+  });
 
   const responsive = [
     ("0", { items: 1.2, margin: 10 }),
@@ -70,25 +78,8 @@ export const Home = (props) => {
             className="owl-theme"
             nav={true}
           >
-            {tickets.map((key) => (
-              <Ticket img={key.img} name={key.name} />
-            ))}
-          </OwlCarousel>
-        </div>
-      </div>
-      <div className="mt-7 grid grid-cols-1  gap-5">
-        <div className="w-full overflow-hidden">
-          <div className="mb-3 flex items-center justify-between w-full">
-            <h2 className="section-title">Launchpad</h2>
-          </div>
-          <OwlCarousel
-            loop={true}
-            responsive={responsive2}
-            className="owl-theme"
-            nav={true}
-          >
-            {tickets.map((key) => (
-              <Ticket img={key.img} name={key.name} />
+            {launchs.map((key) => (
+              <Ticket ticket={key} />
             ))}
           </OwlCarousel>
         </div>
@@ -104,8 +95,8 @@ export const Home = (props) => {
             className="owl-theme"
             nav={true}
           >
-            {tickets.map((key) => (
-              <Ticket img={key.img} name={key.name} />
+            {nfts.map((key) => (
+              <NftBox nft={key} />
             ))}
           </OwlCarousel>
         </div>

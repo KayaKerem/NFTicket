@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { RightArrowSvg } from "./svg/RightArrowSvg";
 import ClockSvg from "../assets/svg/clock.svg";
 import { useDispatch } from "react-redux";
-import { setLaunch } from "../store/launch";
+import { setCollection } from "../store/collection";
 
 export const ShowCollection = ({ ticket, isConnected }) => {
   const dispatch = useDispatch();
@@ -32,10 +32,11 @@ export const ShowCollection = ({ ticket, isConnected }) => {
         {isConnected ? (
           <Link
             to="/nfts"
+            onClick={() => dispatch(setCollection(ticket))}
             className="flex w-full h-[38px] border border-[rgba(149,122,225,0.38)] rounded-xl px-4 py-2.5 items-center justify-between mt-2 group hover:bg-primary-purple transition-all"
           >
             <span className="text-[10px] font-bold group-hover:text-white text-[#27262E] ">
-              Buy
+              Show
             </span>
             <span>
               <RightArrowSvg className="group-hover:stroke-white" />
@@ -47,7 +48,7 @@ export const ShowCollection = ({ ticket, isConnected }) => {
             className="cursor-not-allowed flex w-full h-[38px] border border-[rgba(149,122,225,0.38)] rounded-xl px-4 py-2.5 items-center justify-between mt-2 group hover:bg-primary-purple transition-all"
           >
             <span className="text-[10px] font-bold group-hover:text-white text-[#27262E] ">
-              Buy
+              Show
             </span>
             <span>
               <RightArrowSvg className="group-hover:stroke-white" />
