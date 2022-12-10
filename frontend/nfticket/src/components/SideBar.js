@@ -79,12 +79,12 @@ export const SideBar = (props) => {
             >
               <a
                 onClick={connect}
-                className="cursor-pointer flex items-center space-x-2.5 text-sm font-bold text-[#27262E] p-4 rounded-xl bg-white justify-between group-hover:bg-[#FDF0D8] transition-all"
+                className="cursor-pointer flex items-center space-x-2.5 text-sm font-bold text-[#27262E] p-4 rounded-xl bg-white justify-between group-hover:bg-[#A7C7E7] transition-all"
               >
                 <span>
                   <img alt="" src={MetaMask} className="max-w-[20px]" />
                 </span>
-                <span>Connect Wallet</span>
+                <span className="group-hover:text-white">Connect Wallet</span>
                 <span>
                   <RightArrowSvg className="group-hover:stroke-primary-purple" />
                 </span>

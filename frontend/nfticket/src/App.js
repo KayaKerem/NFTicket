@@ -7,6 +7,7 @@ import { Home } from "./components/pages/Home";
 import { Launchpad } from "./components/pages/Launchpad";
 import { Profile } from "./components/pages/Profile";
 import { SideBar } from "./components/SideBar";
+import NFT from "./assets/png/nft.png";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -29,13 +30,20 @@ function App() {
     signer.getAddress().then((account) => console.log(account));
   }
 
+  const ticket = {
+    background: NFT,
+    name: "TEXT NFT",
+  };
+
+  const tickets = Array(20).fill(ticket);
+
   return (
     <>
       <SideBar account={account} connect={connect} />
       <main className="lg:pl-[calc(292px+32px)] lg:pr-[32px] px-5 pt-5 lg:pt-8 w-full pb-10">
         <Header account={account} connect={connect} />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home tickets={tickets} />}></Route>
           <Route path="collection" element={<Collection />}></Route>
           <Route path="launchpad" element={<Launchpad />}></Route>
           <Route path="profile" element={<Profile />}></Route>

@@ -22,4 +22,7 @@
   .sidebar-li-link span {
     @apply text-2xl
   }
+  .section-title {
+    @apply text-lg sm:text-[24px] font-bold text-[#27262E];
+  }
 }
