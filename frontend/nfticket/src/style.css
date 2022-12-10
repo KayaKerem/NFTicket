@@ -43,4 +43,9 @@ html {
     stroke: #957AE1
 }
 
+body #filterBtns button.active {
+    color: #5429FF;
+    background: rgba(84, 41, 255, 0.1);
+}
+
 

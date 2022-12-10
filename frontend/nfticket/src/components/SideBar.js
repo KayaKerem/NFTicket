@@ -6,10 +6,10 @@ import { LaunchpadSvg } from "./svg/LauncpadSvg";
 import { ProfileSvg } from "./svg/ProfileSvg";
 import MetaMask from "../assets/png/metamask.png";
 import { RightArrowSvg } from "./svg/RightArrowSvg";
-import { useEffect, useState } from "react";
 
 export const SideBar = (props) => {
   const { account, connect } = props;
+
   return (
     <div className="hidden lg:block max-w-[292px] min-w-[292px] w-[292px] fixed left-0 top-0">
       <div className="flex flex-col max-h-screen h-screen bg-white overflow-y-auto px-6 pt-6 pb-8">
