@@ -9,9 +9,11 @@ import { Profile } from "./components/pages/Profile";
 import { SideBar } from "./components/SideBar";
 import { Detail } from "./components/pages/Detail";
 import { useSelector } from "react-redux";
+import { Nfts } from "./components/pages/Nfts";
 
 function App() {
   const [account, setAccount] = useState("");
+  const [isConnected, setIsConnected] = useState(false);
   const launch = useSelector((state) => state.launch.launch);
 
   let loc = useLocation();
@@ -29,6 +31,7 @@ function App() {
       .send("eth_requestAccounts", [])
       .then((accounts) => {
         setAccount(accounts[0]);
+        setIsConnected(true);
       })
       .catch((err) => {
         console.log(err);
@@ -62,6 +65,7 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "theatre",
     type: "Vip",
+    floorPrice: 100,
   };
 
   const thatreLan2C = {
@@ -72,6 +76,7 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "theatre",
     type: "Normal",
+    floorPrice: 122,
   };
 
   const sportLan1C = {
@@ -82,6 +87,7 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "sport",
     type: "Vip",
+    floorPrice: 125,
   };
 
   const sportLan2C = {
@@ -92,6 +98,7 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "sport",
     type: "Normal",
+    floorPrice: 100,
   };
 
   const sportLan3C = {
@@ -102,6 +109,7 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "sport",
     type: "Normal",
+    floorPrice: 150,
   };
 
   const concert1C = {
@@ -112,7 +120,17 @@ function App() {
     date: "02 : 10 : 2023",
     tur: "concert",
     type: "vip",
+    floorPrice: 75,
   };
+
+  const collections = [
+    concert1C,
+    sportLan1C,
+    sportLan3C,
+    sportLan2C,
+    thatreLan1C,
+    thatreLan2C,
+  ];
 
   const thatreLan1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162204772257812/ticket-2.png?width=1440&height=466",
@@ -183,9 +201,10 @@ function App() {
     <>
       <SideBar account={account} connect={connect} />
       <main className="lg:pl-[calc(292px+32px)] lg:pr-[32px] px-5 pt-5 lg:pt-8 w-full pb-10">
-        {loc === "detail" ? (
+        {loc === "detail" || loc === "nfts" ? (
           <Routes>
             <Route path="detail" element={<Detail ticket={launch} />}></Route>
+            <Route path="nfts" element={<Nfts />}></Route>
           </Routes>
         ) : (
           <>
@@ -194,7 +213,12 @@ function App() {
               <Route path="/" element={<Home tickets={tickets} />}></Route>
               <Route
                 path="collection"
-                element={<Collection collections={collections} />}
+                element={
+                  <Collection
+                    collections={collections}
+                    isConnected={isConnected}
+                  />
+                }
               ></Route>
               <Route
                 path="launchpad"
