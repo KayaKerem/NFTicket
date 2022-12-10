@@ -9,10 +9,38 @@ html {
 }
 
 .group:hover .group-hover\:fill-primary-purple {
-    fill:"#957AE1"
+    fill: #957AE1
 }
 
 .group:hover .group-hover\:stroke-primary-purple {
-    stroke: "#957AE1"
+    stroke: #957AE1
 }
+
+
+.group:active .group-active\:text-primary-purple {
+    --tw-text-opacity: 1;
+    color: rgb(149 122 225/var(--tw-text-opacity))
+}
+
+.group:active .group-active\:fill-primary-purple {
+    fill: #957AE1
+}
+
+.group:active .group-active\:stroke-primary-purple {
+    stroke: #957AE1
+}
+
+.group:focus .group-focus\:text-primary-purple {
+    --tw-text-opacity: 1;
+    color: rgb(149 122 225/var(--tw-text-opacity))
+}
+
+.group:focus .group-focus\:fill-primary-purple {
+    fill: #957AE1
+}
+
+.group:focus .group-focus\:stroke-primary-purple {
+    stroke: #957AE1
+}
+
 

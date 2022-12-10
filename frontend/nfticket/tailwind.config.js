@@ -10,7 +10,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        a: "linear-gradient(231.15deg, #FF6961 3.08%, #E186A7 31.35%, #A7C7E7 100%);",
+        a: "linear-gradient(90deg, rgba(151,122,225,1) 0%, rgba(181,115,199,1) 49%, rgba(255,102,196,1) 100%);",
       },
     },
   },
