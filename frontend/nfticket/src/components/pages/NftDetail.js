@@ -1,4 +1,13 @@
+import { ethers } from "ethers";
+
 export const NftDetail = ({ nft }) => {
+  const handleClick = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    signer.signMessage("NfTicket");
+    console.log(signer);
+  };
+
   return (
     <div className="mt-10">
       <div className="mt-7">
@@ -28,7 +37,7 @@ export const NftDetail = ({ nft }) => {
               <span className="text-xl">{nft.price}</span>
               <span className="text-xl">$</span>
             </div> */}
-            <button className="special">
+            <button className="special" onClick={handleClick}>
               <span>{nft.price}</span>
               <span className="">{" ETH"}</span>
               <div className="liquid"></div>

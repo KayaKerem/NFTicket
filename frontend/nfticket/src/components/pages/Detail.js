@@ -1,7 +1,16 @@
+import { ethers } from "ethers";
 import PriceImg from "../../assets/png/price.png";
 
 export const Detail = (props) => {
   const { ticket } = props;
+
+  const HandleMint = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    signer.signMessage("NfTicket");
+    console.log(signer);
+  };
+
   return (
     <div className="mt-10">
       <div className="mt-7">
@@ -28,7 +37,7 @@ export const Detail = (props) => {
               <span className="text-xl">{ticket.price}</span>
               <span className="text-xl">$</span>
             </div> */}
-            <button className="special">
+            <button className="special" onClick={HandleMint}>
               <span className="">Mint</span>
               <div className="liquid"></div>
             </button>
