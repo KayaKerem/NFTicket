@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -67,7 +67,7 @@ contract Marketplace{
         uint256 listingPrice
     ) public payable returns (uint256) {
         require(listingPrice > 0, "Price must be at least 1 wei");
-        require(msg.value == listingFee, "Price must be equal to listing price");
+        // require(msg.value == listingFee, "Price must be equal to listing price");
         _marketItemIds.increment();
         uint256 marketItemId = _marketItemIds.current();
 
@@ -83,9 +83,7 @@ contract Marketplace{
             0.05 ether,
             listingPrice
         );
-
         IERC721(nftContractAddress).transferFrom(msg.sender, address(this), tokenId);
-
         emit MarketPlaceItemListed(
             marketItemId,
             nftContractAddress,
@@ -122,6 +120,9 @@ contract Marketplace{
 
     }
 
+
+
+    //CHECK HERE
     function createMarketSale(address nftContractAddress, uint256 marketItemId) public payable{
         uint256 price = listedItems[marketItemId].listingPrice;
         uint256 tokenId = listedItems[marketItemId].tokenId;
@@ -133,9 +134,8 @@ contract Marketplace{
 
         listedItems[marketItemId].seller = payable(msg.sender);
 
+        listedItems[marketItemId].seller.transfer(price);
 
-
-        // listedItems[marketItemId].seller.transfer(msg.value);
         listedItems[marketItemId].creator.transfer(creatorProfit);
         payable(address(this)).transfer(marketProfit);
         listedItems[marketItemId].seller.transfer(price - (marketProfit + creatorProfit));

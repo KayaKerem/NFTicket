@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -7,10 +7,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract TechTech is ERC721, ERC721URIStorage, Ownable {
-   
 
-    uint256 public MINT_PRICE = 0.05 ether;
-    uint256 public MAX_SUPPLY = 1000;
+
+    uint256 public MINT_PRICE = 0.005 ether;
+    uint256 public MAX_SUPPLY = 100;
     address public ownerOfCollection = 0xD5900cE1bA1839023E3Fd101E7F3c92E43916764;
     // uint256 public MINT_PROFIT = 5;
     using Counters for Counters.Counter;
@@ -32,9 +32,10 @@ contract TechTech is ERC721, ERC721URIStorage, Ownable {
         require(msg.value >= MINT_PRICE,"Not enough ether sent");
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
+        _setTokenURI(tokenId,"ipfs://bafybeihjtag5h6k65wiigqseuqctg5lyf5od72ghzjvplokdscmbam5fwe");
     }
 
-    
+
     function withdraw() public onlyOwner{
         require(address(this).balance > 0,"Balance is zero");
         payable(ownerOfCollection).transfer(address(this).balance);
