@@ -51,6 +51,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "A theatre by tamer Yılmaz",
     place: "Davutpasa Campus",
+    type: "Vip",
   };
 
   const ticket1T1 = {
@@ -62,6 +63,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "A theatre by tamer Yılmaz",
     place: "Davutpasa Campus",
+    type: "Vip",
   };
   const ticket2T1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -72,6 +74,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "A theatre by tamer Yılmaz",
     place: "Davutpasa Campus",
+    type: "Vip",
   };
 
   const thatreLan1C = {
@@ -105,6 +108,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "1745 yıllarına geri dönüş",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const ticket1T2 = {
@@ -116,6 +120,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "1745 yıllarına geri dönüş",
     place: "Istanbul",
+    type: "Normal",
   };
   const ticket2T2 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -126,6 +131,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "1745 yıllarına geri dönüş",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const thatreLan2C = {
@@ -159,6 +165,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
     place: "Istanbul",
+    type: "Vip",
   };
 
   const ticket1S1 = {
@@ -170,6 +177,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
     place: "Istanbul",
+    type: "Vip",
   };
   const ticket2S1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -180,6 +188,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "6 Ocak Kadıköy Stadyumunda oynanacak derbi",
     place: "Istanbul",
+    type: "Vip",
   };
 
   const sportLan1C = {
@@ -213,6 +222,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Cumartesi akşamı futbol şöleni",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const ticket1S2 = {
@@ -224,6 +234,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Cumartesi akşamı futbol şöleni",
     place: "Istanbul",
+    type: "Normal",
   };
   const ticket2S2 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -234,6 +245,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Cumartesi akşamı futbol şöleni",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const sportLan2C = {
@@ -267,6 +279,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Şampiyonluk yarışı",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const ticket1S3 = {
@@ -278,6 +291,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Şampiyonluk yarışı",
     place: "Istanbul",
+    type: "Normal",
   };
   const ticket2S3 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -288,6 +302,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "Şampiyonluk yarışı",
     place: "Istanbul",
+    type: "Normal",
   };
 
   const sportLan3C = {
@@ -321,6 +336,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
     place: "Istanbul",
+    type: "Vip",
   };
 
   const ticket1C1 = {
@@ -332,6 +348,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
     place: "Istanbul",
+    type: "Vip",
   };
   const ticket2C1 = {
     img: "https://media.discordapp.net/attachments/1050869941517168660/1051162205187489812/ticket-3.png?width=1440&height=466",
@@ -342,6 +359,7 @@ function App() {
     date: "02 : 10 : 2023",
     description: "27 Aralık İstabul Vodafone Park Mor ve Ötesi Konseri",
     place: "Istanbul",
+    type: "Vip",
   };
 
   const concert1C = {
@@ -438,17 +456,26 @@ function App() {
     thatreLan2,
   ];
 
+  const myTickets = [ticket1C1, ticket1S1, ticket1T1, ticket2S1];
+
   // const tickets = Array(20).fill(1);
 
   return (
     <>
       <SideBar account={account} connect={connect} />
       <main className="lg:pl-[calc(292px+32px)] lg:pr-[32px] px-5 pt-5 lg:pt-8 w-full pb-10">
-        {loc === "detail" || loc === "nfts" || loc === "nftDetail" ? (
+        {loc === "detail" ||
+        loc === "nfts" ||
+        loc === "nftDetail" ||
+        loc === "profile" ? (
           <Routes>
             <Route path="detail" element={<Detail ticket={launch} />}></Route>
             <Route path="nfts" element={<Nfts ticket={collection} />}></Route>
             <Route path="nftDetail" element={<NftDetail nft={nft} />}></Route>
+            <Route
+              path="profile"
+              element={<Profile tickets={myTickets} account={account} />}
+            ></Route>
           </Routes>
         ) : (
           <>
@@ -473,7 +500,6 @@ function App() {
                 path="launchpad"
                 element={<Launchpad launchPads={launchpads} />}
               ></Route>
-              <Route path="profile" element={<Profile />}></Route>
             </Routes>
           </>
         )}

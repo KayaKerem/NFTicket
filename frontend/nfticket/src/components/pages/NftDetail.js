@@ -13,6 +13,9 @@ export const NftDetail = ({ nft }) => {
             <h1 className="text-md sm:text-[24px] font-bold text-[#27262E]">
               {nft.collectionName}
             </h1>
+            <h2 className="text-md sm:text-[24px] font-medium text-[#27262E]">
+              {nft.type} Ticket
+            </h2>
             <h3 className="text-sm sm:text-[16px] font-semibold text-[#27262E]">
               {nft.description}
             </h3>
@@ -26,7 +29,8 @@ export const NftDetail = ({ nft }) => {
               <span className="text-xl">$</span>
             </div> */}
             <button className="special">
-              <span className="">Mint</span>
+              <span>{nft.price}</span>
+              <span className="">{" ETH"}</span>
               <div className="liquid"></div>
             </button>
           </div>

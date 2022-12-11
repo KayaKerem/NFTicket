@@ -96,7 +96,7 @@ export const Home = (props) => {
             nav={true}
           >
             {nfts.map((key) => (
-              <NftBox nft={key} />
+              <NftBox nft={key} isBought={false} />
             ))}
           </OwlCarousel>
         </div>
