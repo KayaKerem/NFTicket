@@ -8,7 +8,7 @@ export const Ticket = ({ ticket }) => {
   const dispatch = useDispatch();
   return (
     <div className="w-full bg-white rounded-2xl">
-      <div className="relative pt-[30%]">
+      <div className="relative pt-[140%]">
         <img
           alt=""
           src={ticket.img}

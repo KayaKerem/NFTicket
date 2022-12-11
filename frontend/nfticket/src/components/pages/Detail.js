@@ -9,7 +9,7 @@ export const Detail = (props) => {
           <h2 className="section-title m-2">Event Details</h2>
         </div>
         <div className="flex items-center justify-center flex-col">
-          <img alt="" src={ticket.img}></img>
+          <img alt="" className="max-w-[450px]" src={ticket.img}></img>
         </div>
         <div className="flex w-full px-[10%]  pt-7">
           <div className="flex flex-col  flex-1 gap-4">

@@ -1,5 +1,4 @@
-export const NftDetail = ({ nft, collection }) => {
-  console.log(collection.name);
+export const NftDetail = ({ nft }) => {
   return (
     <div className="mt-10">
       <div className="mt-7">
@@ -12,10 +11,10 @@ export const NftDetail = ({ nft, collection }) => {
         <div className="flex w-full px-[10%]  pt-7">
           <div className="flex flex-col  flex-1 gap-4">
             <h1 className="text-md sm:text-[24px] font-bold text-[#27262E]">
-              {collection.name}
+              {nft.collectionName}
             </h1>
             <h3 className="text-sm sm:text-[16px] font-semibold text-[#27262E]">
-              {collection.description}
+              {nft.description}
             </h3>
           </div>
           <div className="flex items-center flex-col gap-4">
